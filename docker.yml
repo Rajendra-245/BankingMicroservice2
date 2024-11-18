@@ -1,16 +1,14 @@
----
-- name: Install Docker
-  hosts: localhost
-  become: true
-  tasks:
-    - name: Install Docker on Debian-based systems
-      apt:
-        name: docker.io
-        state: present
-      when: ansible_facts['os_family'] == 'Debian'
-    
-    - name: Install Docker on RedHat-based systems
-      yum:
-        name: docker
-        state: present
-      when: ansible_facts['os_family'] == 'RedHat'
+# Use an OpenJDK base image
+FROM openjdk:11-jre-slim
+
+# Set working directory in the container
+WORKDIR /app
+
+# Copy the JAR file into the container
+COPY target/BankingMicroservice-1.0-SNAPSHOT.jar app.jar
+
+# Expose the application port (adjust if needed)
+EXPOSE 8080
+
+# Command to run the JAR file
+ENTRYPOINT ["java", "-jar", "app.jar"]
