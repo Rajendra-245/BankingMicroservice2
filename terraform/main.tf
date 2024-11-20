@@ -45,7 +45,7 @@ resource "azurerm_public_ip" "public_ip" {
 }
  
 # Network Interface for Linux VM
-resource "azurerm_network_interface" "nic_linux1" {
+resource "azurerm_network_interface" "nic_linux" {
   name                = "nic-linux-vm1"
   location            = azurerm_resource_group.rg1.location
   resource_group_name = azurerm_resource_group.rg1.name
