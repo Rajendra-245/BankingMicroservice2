@@ -4,7 +4,7 @@ provider "azurerm" {
 }
  
 # Resource Group
-resource "azurerm_resource_group" "rg1" {
+resource "azurerm_resource_group" "rg" {
   name     = "rg-linux-vm1"
   location = "Canada Central"
 }
