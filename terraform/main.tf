@@ -4,39 +4,39 @@ provider "azurerm" {
 }
  
 # Resource Group
-resource "azurerm_resource_group" "rg" {
-  name     = "rg-linux-vm"
+resource "azurerm_resource_group" "rg1" {
+  name     = "rg-linux-vm1"
   location = "Canada Central"
 }
  
 # Virtual Network
-resource "azurerm_virtual_network" "vnet" {
-  name                = "vnet-linux-vm"
+resource "azurerm_virtual_network" "vnet1" {
+  name                = "vnet-linux-vm1"
   address_space       = ["192.168.0.0/19"]
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg1.location
+  resource_group_name = azurerm_resource_group.rg1.name
 }
  
 # Subnet
-resource "azurerm_subnet" "subnet" {
-  name                 = "subnet-linux-vm"
-  resource_group_name  = azurerm_resource_group.rg.name
-  virtual_network_name = azurerm_virtual_network.vnet.name
+resource "azurerm_subnet" "subnet1" {
+  name                 = "subnet-linux-vm1"
+  resource_group_name  = azurerm_resource_group.rg1.name
+  virtual_network_name = azurerm_virtual_network.vnet1.name
   address_prefixes     = ["192.168.0.0/24"]
 }
  
 # Network Security Group
-resource "azurerm_network_security_group" "nsg" {
-  name                = "nsg-linux-vm"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+resource "azurerm_network_security_group" "nsg1" {
+  name                = "nsg-linux-vm1"
+  location            = azurerm_resource_group.rg1.location
+  resource_group_name = azurerm_resource_group.rg1.name
 }
  
 # Public IP
-resource "azurerm_public_ip" "public_ip" {
-  name                = "public-ip-linux-vm"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+resource "azurerm_public_ip" "public_ip1" {
+  name                = "public-ip-linux-vm1"
+  location            = azurerm_resource_group.rg1.location
+  resource_group_name = azurerm_resource_group.rg1.name
   allocation_method   = "Dynamic"  # You can use "Static" for a fixed IP
   sku                 = "Basic"    # Use "Standard" for better features and availability
   tags = {
@@ -45,14 +45,14 @@ resource "azurerm_public_ip" "public_ip" {
 }
  
 # Network Interface for Linux VM
-resource "azurerm_network_interface" "nic_linux" {
-  name                = "nic-linux-vm"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+resource "azurerm_network_interface" "nic_linux1" {
+  name                = "nic-linux-vm1"
+  location            = azurerm_resource_group.rg1.location
+  resource_group_name = azurerm_resource_group.rg1.name
  
   # Network interface configuration
   ip_configuration {
-    name                          = "ipconfig-linux-vm"
+    name                          = "ipconfig-linux-vm1"
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.public_ip.id  # Associate public IP
@@ -81,13 +81,13 @@ data "template_file" "user_data_script" {
 }
  
 # Linux Virtual Machine
-resource "azurerm_linux_virtual_machine" "linux_vm" {
-  name                            = "linux-vm-linux"
-  resource_group_name             = azurerm_resource_group.rg.name
-  location                        = azurerm_resource_group.rg.location
+resource "azurerm_linux_virtual_machine" "linux_vm1" {
+  name                            = "linux-vm-linux1"
+  resource_group_name             = azurerm_resource_group.rg1.name
+  location                        = azurerm_resource_group.rg1.location
   size                            = "Standard_DS1_v2"
   admin_username                  = "adminuser"
-  admin_password                  = "Password@123"  # Replace with secure credentials
+  admin_password                  = "password123@"  # Replace with secure credentials
   disable_password_authentication = false
  
   # Network interface for the VM
