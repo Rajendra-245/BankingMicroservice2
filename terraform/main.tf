@@ -10,8 +10,8 @@ resource "azurerm_resource_group" "rg1" {
 }
  
 # Virtual Network
-resource "azurerm_virtual_network" "vnet1" {
-  name                = "vnet-linux-vm1"
+resource "azurerm_virtual_network" "vnet" {
+  name                = "myVnet"
   address_space       = ["192.168.0.0/19"]
   location            = azurerm_resource_group.rg1.location
   resource_group_name = azurerm_resource_group.rg1.name
@@ -33,7 +33,7 @@ resource "azurerm_network_security_group" "nsg1" {
 }
  
 # Public IP
-resource "azurerm_public_ip" "public_ip1" {
+resource "azurerm_public_ip" "public_ip" {
   name                = "public-ip-linux-vm1"
   location            = azurerm_resource_group.rg1.location
   resource_group_name = azurerm_resource_group.rg1.name
