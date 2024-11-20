@@ -13,30 +13,30 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_virtual_network" "vnet" {
   name                = "myVnet"
   address_space       = ["192.168.0.0/19"]
-  location            = azurerm_resource_group.rg1.location
-  resource_group_name = azurerm_resource_group.rg1.name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
 }
  
 # Subnet
 resource "azurerm_subnet" "subnet" {
   name                 = "subnet-linux-vm1"
-  resource_group_name  = azurerm_resource_group.rg1.name
-  virtual_network_name = azurerm_virtual_network.vnet1.name
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["192.168.0.0/24"]
 }
  
 # Network Security Group
 resource "azurerm_network_security_group" "nsg1" {
   name                = "nsg-linux-vm1"
-  location            = azurerm_resource_group.rg1.location
-  resource_group_name = azurerm_resource_group.rg1.name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
 }
  
 # Public IP
 resource "azurerm_public_ip" "public_ip" {
   name                = "public-ip-linux-vm1"
-  location            = azurerm_resource_group.rg1.location
-  resource_group_name = azurerm_resource_group.rg1.name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Dynamic"  # You can use "Static" for a fixed IP
   sku                 = "Basic"    # Use "Standard" for better features and availability
   tags = {
@@ -47,8 +47,8 @@ resource "azurerm_public_ip" "public_ip" {
 # Network Interface for Linux VM
 resource "azurerm_network_interface" "nic_linux" {
   name                = "nic-linux-vm1"
-  location            = azurerm_resource_group.rg1.location
-  resource_group_name = azurerm_resource_group.rg1.name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
  
   # Network interface configuration
   ip_configuration {
@@ -83,8 +83,8 @@ data "template_file" "user_data_script" {
 # Linux Virtual Machine
 resource "azurerm_linux_virtual_machine" "linux_vm1" {
   name                            = "linux-vm-linux1"
-  resource_group_name             = azurerm_resource_group.rg1.name
-  location                        = azurerm_resource_group.rg1.location
+  resource_group_name             = azurerm_resource_group.rg.name
+  location                        = azurerm_resource_group.rg.location
   size                            = "Standard_DS1_v2"
   admin_username                  = "adminuser"
   admin_password                  = "password123@"  # Replace with secure credentials
