@@ -18,7 +18,7 @@ resource "azurerm_virtual_network" "vnet" {
 }
  
 # Subnet
-resource "azurerm_subnet" "subnet1" {
+resource "azurerm_subnet" "subnet" {
   name                 = "subnet-linux-vm1"
   resource_group_name  = azurerm_resource_group.rg1.name
   virtual_network_name = azurerm_virtual_network.vnet1.name
