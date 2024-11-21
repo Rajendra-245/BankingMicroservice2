@@ -1,11 +1,11 @@
 subscription_id          = "c36a2f47-ab04-42a4-a035-c64fe75e4fba"
 location                 = "East US"
 resource_group_name      = "rg2-S333"
-vnet_name                = "vnet-S33"
+vnet_name                = "vnet-S333"
 address_space            = ["10.0.0.0/19"]
-subnet_name              = "subnet-S33"
+subnet_name              = "subnet-S333"
 subnet_address_prefix    = ["10.0.0.0/24"]
-nsg_name                 = "nsg-S33"
+nsg_name                 = "nsg-S333"
 vm_admin_username        = "adminuser"
 vm_admin_password        = "Password@123"
 vm_size                  = "Standard_DS1_v2"
