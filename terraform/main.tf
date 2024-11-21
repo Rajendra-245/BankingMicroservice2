@@ -56,7 +56,7 @@ security_rule {
 }
  
 # Public IP Address
-resource "azurerm_public_ip" "vm_public_ip3" {
+resource "azurerm_public_ip" "vm_public_ip33" {
   name                = "vm-public-ip-S33"
   location            = var.location
   resource_group_name = var.resource_group_name
