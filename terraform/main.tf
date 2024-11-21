@@ -1,9 +1,8 @@
-# Configure the Azure provider
 provider "azurerm" {
   features {}
 
   client_id       = "aaba2b34-76ec-43a1-a1d6-aa77ebb76032"
-  client_secret   = "a9e35d0f-80b7-41ad-9f85-11a5047868f1"
+  client_secret   = "your_actual_client_secret_value"  # Ensure this is the actual value
   tenant_id       = "c3337333-ab54-4b33-8aa7-1d5b19f9b96f"
   subscription_id = "c36a2f47-ab04-42a4-a035-c64fe75e4fba"
 }
