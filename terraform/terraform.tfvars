@@ -1,6 +1,6 @@
 subscription_id          = "c36a2f47-ab04-42a4-a035-c64fe75e4fba"
 location                 = "East US"
-resource_group_name      = "rg2-S333"
+resource_group_name      = "rg2-S3333"
 vnet_name                = "vnet-S333"
 address_space            = ["10.0.0.0/19"]
 subnet_name              = "subnet-S333"
