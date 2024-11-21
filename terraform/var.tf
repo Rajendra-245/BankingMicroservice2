@@ -72,4 +72,4 @@ variable "vm_image_version" {
   description = "Version for the VM image"
   type        = string
 }
-has context menu
+
