@@ -57,7 +57,7 @@ security_rule {
  
 # Public IP Address
 resource "azurerm_public_ip" "vm_public_ip3" {
-  name                = "vm-public-ip-S3"
+  name                = "vm-public-ip-S33"
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Static"
@@ -66,15 +66,15 @@ resource "azurerm_public_ip" "vm_public_ip3" {
  
 # Network Interface for Linux VM
 resource "azurerm_network_interface" "nic_linux" {
-  name                = "nic-linux-vm-S3"
+  name                = "nic-linux-vm-S33"
   location            = var.location
   resource_group_name = var.resource_group_name
  
   ip_configuration {
-    name                          = "ipconfig-linux-S3"
+    name                          = "ipconfig-linux-S33"
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.vm_public_ip3.id
+    public_ip_address_id          = azurerm_public_ip.vm_public_ip33.id
   }
 }
  
@@ -86,7 +86,7 @@ resource "azurerm_network_interface_security_group_association" "nic_nsg" {
  
 # Linux Virtual Machine
 resource "azurerm_linux_virtual_machine" "linux_vm" {
-  name                            = "linux-vm-S3"
+  name                            = "linux-vm-S33"
   resource_group_name             = var.resource_group_name
   location                        = var.location
   size                            = var.vm_size
@@ -157,5 +157,5 @@ EOT
  
 # Output Public IP Address
 output "vm_public_ip" {
-  value = azurerm_public_ip.vm_public_ip3.ip_address
+  value = azurerm_public_ip.vm_public_ip33.ip_address
 }
