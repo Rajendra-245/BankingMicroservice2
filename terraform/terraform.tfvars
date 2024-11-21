@@ -1,5 +1,5 @@
 subscription_id          = "c36a2f47-ab04-42a4-a035-c64fe75e4fba"
-location                 = "Canada Central"
+location                 = "East US"
 resource_group_name      = "rg2-S333"
 vnet_name                = "vnet-S33"
 address_space            = ["10.0.0.0/19"]
