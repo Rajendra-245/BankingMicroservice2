@@ -86,7 +86,7 @@ resource "azurerm_network_interface_security_group_association" "nic_nsg" {
 }
  
 # Linux Virtual Machine
-resource "azurerm_linux_virtual_machine" "linux_vm" {
+resource "azurerm_linux_virtual_machine" "linux_vm1" {
   name                            = var.vm_name
   resource_group_name             = azurerm_resource_group.rg.name
   location                        = var.location
