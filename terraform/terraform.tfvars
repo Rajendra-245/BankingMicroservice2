@@ -14,4 +14,3 @@ vm_image_publisher       = "Canonical"
 vm_image_offer           = "UbuntuServer"
 vm_image_sku             = "18.04-LTS"
 vm_image_version         = "latest"
-``
