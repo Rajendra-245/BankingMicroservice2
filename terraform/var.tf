@@ -38,6 +38,11 @@ variable "nsg_name" {
   type        = string
 }
  
+variable "vm_name" {
+  description = "Name of the Virtual Machine"
+  type        = string
+}
+ 
 variable "vm_admin_username" {
   description = "Admin username for the VM"
   type        = string
@@ -72,4 +77,3 @@ variable "vm_image_version" {
   description = "Version for the VM image"
   type        = string
 }
-
