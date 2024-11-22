@@ -1,15 +1,15 @@
-version: '3.7'
-
-services:
-  banking-microservice:
-    image: tomcat:latest
-    ports:
-      - "8001:8080"  # Map port 8080 of the container to port 8080 on the host
-    networks:
+services: 
+  banking-microservice: 
+    image: tomcat:8.5
+    build: 
+      context: .
+    ports: 
+      - "8001:8080"  # Map port 8080 of the container to port 8080 on the host 
+    networks: 
       - banking-network
-    volumes:
-      - ./target/mvn-hello-world.war:/usr/local/tomcat/webapps/mvn-hello-world.war  # Mount the JAR file into the container
-
-networks:
-  banking-network:
+    volumes: 
+      - ./target/mvn-hello-world.war:/usr/local/tomcat/webapps/ROOT.war
+ 
+networks: 
+  banking-network: 
     driver: bridge
