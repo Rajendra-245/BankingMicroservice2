@@ -4,7 +4,7 @@ services:
   banking-microservice:
     image: tomcat:latest
     ports:
-      - "8000:8080"  # Map port 8080 of the container to port 8080 on the host
+      - "8001:8080"  # Map port 8080 of the container to port 8080 on the host
     networks:
       - banking-network
     volumes:
