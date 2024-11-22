@@ -1,6 +1,6 @@
 ---
 - name: Install Docker on CentOS
-  hosts: con
+  hosts: Linux_vm_s3
   become: true
   tasks:
     - name: Remove conflicting podman-docker package (if installed)
