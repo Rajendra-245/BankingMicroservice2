@@ -43,13 +43,13 @@ resource "azurerm_network_security_group" "nsg" {
     destination_address_prefix = "*"
   }
  security_rule {
-    name                       = "ALLOW8000"
+    name                       = "ALLOW8001"
     priority                   = 1001
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "*"
     source_port_range          = "*"
-    destination_port_range     = "8000"
+    destination_port_range     = "8001"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
